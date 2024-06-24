@@ -1,10 +1,8 @@
 import 'package:burger_king_/Constants/Colors.dart';
 import 'package:burger_king_/SplashScreen/splash_screen.dart';
-import 'package:burger_king_/UI/Menu/menu_screen.dart';
 import 'package:burger_king_/UI/Order/Data/cart_data.dart';
 import 'package:burger_king_/UI/Order/Model/order_model.dart';
 import 'package:burger_king_/UI/app_bar_screen.dart';
-import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 

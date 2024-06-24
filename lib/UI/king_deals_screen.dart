@@ -1,5 +1,4 @@
 import 'package:burger_king_/Constants/Colors.dart';
-import 'package:burger_king_/UI/Menu/Data/139_deal_data.dart';
 import 'package:burger_king_/UI/Menu/Data/deals_data.dart';
 import 'package:burger_king_/UI/app_bar_screen.dart';
 import 'package:flutter/material.dart';

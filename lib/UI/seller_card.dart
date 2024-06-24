@@ -1,6 +1,5 @@
 import 'package:burger_king_/Constants/Colors.dart';
 import 'package:burger_king_/UI/order_page.dart';
-import 'package:confetti/confetti.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';

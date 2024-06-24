@@ -4,7 +4,6 @@ import 'package:burger_king_/Constants/constants.dart';
 import 'package:burger_king_/SplashScreen/splash_screen.dart';
 import 'package:burger_king_/UI/Menu/menu_screen.dart';
 import 'package:burger_king_/UI/Order/Data/cart_data.dart';
-import 'package:burger_king_/UI/Order/cart_popup.dart';
 import 'package:burger_king_/UI/Order/order_final_screen.dart';
 import 'package:burger_king_/UI/address_screen.dart';
 import 'package:burger_king_/UI/crown_rewards_screen.dart';
