@@ -37,8 +37,8 @@ class _OrderCompleteScreenState extends State<OrderCompleteScreen> {
               context,
               PageTransition(
                   child: AppBarScreen(), type: PageTransitionType.topToBottom));
-          CartList.length = 0;
-          SplashScreen.TotalCost = 0;
+          // CartList.length = 0;
+          // SplashScreen.TotalCost = 0;
         }
       });
     });

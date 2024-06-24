@@ -1,8 +1,10 @@
 import 'package:burger_king_/Constants/Colors.dart';
 import 'package:burger_king_/Constants/constants.dart';
 import 'package:burger_king_/UI/app_bar_screen.dart';
+import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:video_player/video_player.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class BKWallScreen extends StatefulWidget {
@@ -15,18 +17,23 @@ class BKWallScreen extends StatefulWidget {
 class _BKWallScreenState extends State<BKWallScreen> {
   final MainVideoURL = "https://youtu.be/BF6KVRnZ8c8?feature=shared";
   late YoutubePlayerController _youtubePlayerController;
+  late FlickManager _flickManager;
 
   @override
   void initState() {
     // TODO: implement initState
-    final MainVideoID = YoutubePlayer.convertUrlToId(MainVideoURL);
-    _youtubePlayerController = YoutubePlayerController(
-        initialVideoId: MainVideoID!,
-        flags: YoutubePlayerFlags(
-          autoPlay: false,
-        ));
-
     super.initState();
+    final MainVideoID = "assets/video.mp4";
+    _flickManager = FlickManager(
+        videoPlayerController: VideoPlayerController.asset("assets/video.mp4"));
+    
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _flickManager.dispose();
   }
 
   @override
@@ -122,20 +129,16 @@ class _BKWallScreenState extends State<BKWallScreen> {
 
   Widget Video1() {
     return Container(
-      height: 200,
-      width: 375,
-      decoration:
-          BoxDecoration(border: Border.all(color: Colors.black, width: 1)),
-      child: YoutubePlayer(
-        controller: _youtubePlayerController,
-        showVideoProgressIndicator: true,
-        progressIndicatorColor: Colors.red,
-        bottomActions: [
-          CurrentPosition(),
-          ProgressBar(isExpanded: true),
-        ],
-      ),
-    );
+       padding: EdgeInsets.all(6),
+        height: 203,
+        width: 370,
+        decoration:
+            BoxDecoration(border: Border.all(color: BackGround, width: 1)),
+        child: Center(
+         
+          child: FlickVideoPlayer(flickManager: _flickManager,
+          
+          )));
   }
 
   Widget Text1() {
@@ -201,9 +204,9 @@ class _BKWallScreenState extends State<BKWallScreen> {
   }
 
   Widget Image3() {
-    return  Image.asset(
-        "assets/Wall/last.png",
-        scale: 3.5,
-      );
+    return Image.asset(
+      "assets/Wall/last.png",
+      scale: 3.5,
+    );
   }
 }
