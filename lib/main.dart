@@ -1,4 +1,4 @@
-import 'package:burger_king_/UI/app_bar_screen.dart';
+import 'package:burger_king_/SplashScreen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -24,6 +24,6 @@ class _MyAppState extends State<MyApp> {
         title: "Burger King",
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-            body:AppBarScreen()));
+            body:SplashScreen()));
   }
 }
