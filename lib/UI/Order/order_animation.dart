@@ -22,7 +22,7 @@ class _OrderAnimationState extends State<OrderAnimation>
     _animate = AnimationController(vsync: this, duration: Duration(seconds: 2));
     _animate.repeat();
 
-    Future.delayed(Duration(seconds: 6), () {
+    Future.delayed(Duration(seconds: 8), () {
       if (mounted) {
         _animate.stop();
 
