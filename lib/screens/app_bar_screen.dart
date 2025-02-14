@@ -28,6 +28,7 @@ class _AppBarScreenState extends State<AppBarScreen> {
     return Container(
       height: 74,
       child: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
           selectedIconTheme: IconThemeData(color: SwitchColor),
           unselectedLabelStyle: TextStyle(fontFamily: "Nova"),
           selectedLabelStyle: TextStyle(fontFamily: "Nova"),

@@ -17,3 +17,6 @@ final String Seller2 ="Thick Paneer Patty, loads of\nsauces in soft square masal
 final String Seller3 ="  Our signature Whooper with \n  7 layers between the buns.Ex...";
 final String Seller4 ="  Our Tribute to classic\n  american taste. BK veg patty...";
 final String WallText = "Our restaurants are known for serving high-quality, great-tasting, and affordable food. Founded in 1954, BURGER KING® is the second largest fast food hamburger chain in the world with about 18,000 restaurants operating in more than 100 countries and US territories as at June 30, 2019. The original HOME OF THE WHOPPER®, our commitment to ingredients, signature recipes, and end-to-end online Burger King experience for millennials is what has defined our brand for more than 50 years.";
+
+//* for highlighting appbar
+bool lights = false;

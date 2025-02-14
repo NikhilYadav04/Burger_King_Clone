@@ -1,11 +1,11 @@
 import 'package:burger_king_/screens/Splash_Screens/splash_screen.dart';
+import 'package:burger_king_/screens/app_bar_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-   
   runApp(MyApp());
 }
 
@@ -23,7 +23,6 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(fontFamily: "NovaB"),
         title: "Burger King",
         debugShowCheckedModeBanner: false,
-        home: Scaffold(
-            body:SplashScreen()));
+        home: Scaffold(body: AppBarScreen()));
   }
 }

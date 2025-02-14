@@ -78,7 +78,7 @@ flutter:
     - Items/Sellers/
     - assets/sellcard/
     - assets/Drinks/
-    - assets/Des/
+    - assets/Deserts/
     - assets/Menu/
     - assets/Menu/Combos/
     - assets/Menu/139/
@@ -88,6 +88,7 @@ flutter:
     - assets/Menu/Slides/
     - assets/Wall/
     - assets/video.mp4
+    - assets/animation/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
