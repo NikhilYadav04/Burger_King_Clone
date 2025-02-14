@@ -1,4 +1,4 @@
-import 'package:burger_king_/SplashScreen/splash_screen.dart';
+import 'package:burger_king_/screens/Splash_Screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
