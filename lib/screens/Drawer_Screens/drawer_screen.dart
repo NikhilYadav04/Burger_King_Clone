@@ -3,9 +3,9 @@ import 'package:burger_king_/screens/Drawer_Screens/address_screen.dart';
 import 'package:burger_king_/screens/app_bar_screen.dart';
 import 'package:burger_king_/screens/Primary_Screens/crown_rewards_screen.dart';
 import 'package:burger_king_/screens/Drawer_Screens/king_deals_screen.dart';
-import 'package:burger_king_/screens/Drawer_Screens/notification_page.dart';
 import 'package:burger_king_/screens/Drawer_Screens/recent_orders.dart';
 import 'package:burger_king_/screens/Drawer_Screens/wall_BK_screen.dart';
+import 'package:burger_king_/widgets/Drawer_Screen/drawer_screen_widgets.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +29,9 @@ class _DrawerScState extends State<DrawerSc> {
           color: BackGround,
           child: Column(
             children: [
-              Row1(),
+              Row1(context, () {
+                widget.scaffoldKey.currentState?.closeDrawer();
+              }),
               SizedBox(
                 height: 10,
               ),
@@ -37,7 +39,7 @@ class _DrawerScState extends State<DrawerSc> {
               SizedBox(
                 height: 15,
               ),
-              Row3(),
+              Row3(context),
               SizedBox(
                 height: 35,
               ),
@@ -130,184 +132,5 @@ class _DrawerScState extends State<DrawerSc> {
             ],
           ),
         ));
-  }
-
-  Widget Row1() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        IconButton(
-            onPressed: () {
-              widget.scaffoldKey.currentState?.closeDrawer();
-            },
-            icon: Icon(
-              Icons.arrow_back,
-              color: SwitchColor,
-              size: 28,
-            )),
-        SizedBox(
-          width: 220,
-        ),
-        IconButton(
-          onPressed: () {
-            Navigator.push(
-                context,
-                PageTransition(
-                    child: NotificaionScreen(), type: PageTransitionType.fade));
-          },
-          icon: Icon(
-            Icons.notifications,
-            color: SwitchColor,
-            size: 28,
-          ),
-        )
-      ],
-    );
-  }
-
-  Widget Row2() {
-    return Row(
-      children: [
-        SizedBox(
-          width: 5,
-        ),
-        Container(
-          child: Image.asset(
-            "assets/edittt.png",
-            height: 80,
-            width: 80,
-          ),
-        ),
-        SizedBox(
-          width: 10,
-        ),
-        Column(
-          children: [
-            Container(
-                margin: EdgeInsets.fromLTRB(0, 0, 53, 0),
-                child: Text(
-                  "Nikhil",
-                  style: TextStyle(
-                      fontFamily: "Nova",
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      color: Brown),
-                )),
-            Container(
-                child: Text(
-              "9152502571",
-              style: TextStyle(
-                  fontFamily: "Nova",
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: Brown),
-            ))
-          ],
-        )
-      ],
-    );
-  }
-
-  Widget Row3() {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(context,
-            PageTransition(child: Crown(), type: PageTransitionType.fade));
-      },
-      child: Container(
-        padding: EdgeInsets.all(15),
-        height: 100,
-        width: 318,
-        decoration: BoxDecoration(
-            color: Brown, borderRadius: BorderRadius.circular(14)),
-        child: Row(
-          children: [
-            Image.asset(
-              "assets/coins.png",
-              height: 50,
-              width: 50,
-            ),
-            SizedBox(
-              width: 22,
-            ),
-            Column(
-              children: [
-                Container(
-                    margin: EdgeInsets.fromLTRB(0, 8, 58, 0),
-                    child: Text(
-                      "793",
-                      style: TextStyle(
-                          fontFamily: "Nova",
-                          fontSize: 23,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    )),
-                Container(
-                    margin: EdgeInsets.only(right: 24),
-                    child: Text(
-                      "BK Crowns",
-                      style: TextStyle(
-                          fontFamily: "Nova",
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ))
-              ],
-            ),
-            SizedBox(
-              width: 16,
-            ),
-            InkWell(
-              onTap: () {},
-              child: Container(
-                  height: 45,
-                  width: 105,
-                  decoration: BoxDecoration(
-                      color: Colors.redAccent.shade700,
-                      borderRadius: BorderRadius.circular(22)),
-                  child: Center(
-                    child: Text(
-                      "Redeem",
-                      style: TextStyle(
-                          fontFamily: "Nova",
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                  )),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget ListItem(String image, String Label) {
-    return Container(
-      padding: EdgeInsets.only(
-        left: 12,
-      ),
-      child: Row(
-        children: [
-          Image.asset(
-            image,
-            height: 22,
-            width: 22,
-            color: SwitchColor,
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          Container(
-            padding: EdgeInsets.only(bottom: 4),
-            child: Text(
-              Label,
-              style: TextStyle(
-                  fontFamily: "Nova", fontSize: 20, color: Colors.black),
-            ),
-          )
-        ],
-      ),
-    );
   }
 }

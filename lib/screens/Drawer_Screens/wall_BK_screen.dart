@@ -23,7 +23,6 @@ class _BKWallScreenState extends State<BKWallScreen> {
     super.initState();
     _flickManager = FlickManager(
         videoPlayerController: VideoPlayerController.asset("assets/video.mp4"));
-    
   }
 
   @override
@@ -126,16 +125,15 @@ class _BKWallScreenState extends State<BKWallScreen> {
 
   Widget Video1() {
     return Container(
-       padding: EdgeInsets.all(6),
+        padding: EdgeInsets.all(6),
         height: 203,
         width: 370,
         decoration:
             BoxDecoration(border: Border.all(color: BackGround, width: 1)),
         child: Center(
-         
-          child: FlickVideoPlayer(flickManager: _flickManager,
-          
-          )));
+            child: FlickVideoPlayer(
+          flickManager: _flickManager,
+        )));
   }
 
   Widget Text1() {

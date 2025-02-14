@@ -1,6 +1,7 @@
 import 'package:burger_king_/constants/Colors.dart';
 import 'package:burger_king_/data/Data_Menu/deals_data.dart';
 import 'package:burger_king_/screens/app_bar_screen.dart';
+import 'package:burger_king_/widgets/Drawer_Screen/king_deals_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -17,7 +18,7 @@ class _KingDealsScreenState extends State<KingDealsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Container(
+      body: Container(
           color: lightGray,
           child: Stack(
             children: [
@@ -118,55 +119,19 @@ class _KingDealsScreenState extends State<KingDealsScreen> {
                 padding: EdgeInsets.all(3),
                 child: Row(
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          index = 1;
-                        });
-                      },
-                      child: Container(
-                        height: 52,
-                        width: 155,
-                        decoration: BoxDecoration(
-                            color: index == 1 ? Brown : Colors.white,
-                            borderRadius: BorderRadius.circular(50)),
-                        child: Center(
-                          child: Text(
-                            "Dine-in/Takeaway",
-                            style: TextStyle(
-                                color: index == 1 ? Colors.white : Brown,
-                                fontFamily: "Nova",
-                                fontSize: 16),
-                          ),
-                        ),
-                      ),
-                    ),
+                    appBarCard(index,1, () {
+                      setState(() {
+                        index = 1;
+                      });
+                    }, "Dine-in/Takeaway", Brown, 16),
                     SizedBox(
                       width: 3,
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          index = 2;
-                        });
-                      },
-                      child: Container(
-                        height: 52,
-                        width: 155,
-                        decoration: BoxDecoration(
-                            color: index == 2 ? SwitchColor : Colors.white,
-                            borderRadius: BorderRadius.circular(50)),
-                        child: Center(
-                          child: Text(
-                            "DELIVERY",
-                            style: TextStyle(
-                                color: index == 2 ? Colors.white : Brown,
-                                fontFamily: "Nova",
-                                fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    ),
+                    appBarCard(index,2, () {
+                      setState(() {
+                        index = 2;
+                      });
+                    }, "DELIVERY", SwitchColor, 20)
                   ],
                 ),
               ),
@@ -229,12 +194,13 @@ class _KingDealsScreenState extends State<KingDealsScreen> {
                         backgroundColor: Colors.transparent,
                         context: context,
                         builder: (BuildContext context) {
-                          return BottomSh(
+                          return Bottom(
                               DealKingList[index].Name,
                               DealKingList[index].CardImage,
                               DealKingList[index].Desc,
                               "399",
-                              DealKingList[index].Name);
+                              DealKingList[index].Name,
+                              context);
                         });
                   },
                   child: Container(
@@ -261,127 +227,5 @@ class _KingDealsScreenState extends State<KingDealsScreen> {
             ),
           );
         });
-  }
-
-  Widget BottomSh(
-      String text, String image, String food, String amount, String Coup) {
-    return Container(
-      margin: EdgeInsets.only(top: 0),
-      width: double.infinity,
-      decoration: BoxDecoration(color: Colors.transparent),
-      child: Column(
-        children: [
-          Container(
-            margin: EdgeInsets.only(left: 350),
-            color: Colors.transparent,
-            child: IconButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                icon: Icon(
-                  Icons.close,
-                  color: Colors.white,
-                  size: 30,
-                )),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            width: double.infinity,
-            height: 442.7,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20))),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  height: 150,
-                  width: 150,
-                  child: CircleAvatar(
-                    child: Image.asset(image),
-                  ),
-                ),
-                SizedBox(
-                  height: 18,
-                ),
-                Text(
-                  text,
-                  style: TextStyle(
-                      fontFamily: "HornB",
-                      color: Colors.black,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  food,
-                  style: TextStyle(
-                      fontFamily: "Nova",
-                      color: Colors.grey.shade700,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  height: 90,
-                  width: 340,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey.shade700),
-                      borderRadius: BorderRadius.circular(8)),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 70,
-                      ),
-                      Center(
-                        child: Text(
-                          Coup,
-                          style: TextStyle(
-                              fontFamily: "HornB",
-                              color: Colors.black,
-                              fontSize: 32,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 55,
-                      ),
-                      IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.copy,
-                            color: Colors.grey.shade800,
-                            size: 28,
-                          )),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  "You can always find this voucher in Saved King Deals",
-                  style: TextStyle(
-                      fontFamily: "Nova",
-                      color: Colors.grey.shade700,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-          )
-        ],
-      ),
-    );
   }
 }
