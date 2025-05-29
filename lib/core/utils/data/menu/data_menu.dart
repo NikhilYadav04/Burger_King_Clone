@@ -1,4 +1,4 @@
-import 'package:burger_king_/models/menu/menu_model.dart';
+import 'package:burger_king_/models/menu/model_menu.dart';
 
 final List<MENU> MenuList = [
   MENU(

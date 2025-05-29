@@ -1,4 +1,4 @@
-import 'package:burger_king_/models/menu/deals_model.dart';
+import 'package:burger_king_/models/menu/model_deals.dart';
 
 final List<Deals> DealKingList = [
   Deals(

@@ -1,4 +1,4 @@
-import 'package:burger_king_/constants/Colors.dart';
+import 'package:burger_king_/core/constants/Colors.dart';
 import 'package:burger_king_/views/drawer/drawer_address_view.dart';
 import 'package:burger_king_/views/appbar/app_bar_view.dart';
 import 'package:burger_king_/views/primary/primary_crown-rewards_view.dart';

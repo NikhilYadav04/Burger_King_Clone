@@ -1,4 +1,4 @@
-import 'package:burger_king_/models/menu/whooper_model.dart';
+import 'package:burger_king_/models/menu/model_whooper.dart';
 
 final List<WhooperOrderModel> WhooperOrderList = [
   WhooperOrderModel(

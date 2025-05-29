@@ -1,4 +1,4 @@
-import 'package:burger_king_/models/order/coupon_model.dart';
+import 'package:burger_king_/models/order/model_order_coupon.dart';
 
 final List<CouponModel> CouponList = [
   CouponModel(Name: "KING200", Desc:"Flat Rs.200 Off on Orders Above Rs.699/-",width: 95),

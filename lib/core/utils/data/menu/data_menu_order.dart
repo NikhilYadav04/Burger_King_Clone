@@ -1,5 +1,5 @@
 
-import 'package:burger_king_/models/menu/order_model.dart';
+import 'package:burger_king_/models/menu/model_order.dart';
 
 final List<Order> OrderComboList= [
  Order(image: "assets/Menu/Combos/A.png", Name: "Classic Duo - Veg"),

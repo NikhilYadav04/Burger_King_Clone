@@ -1,6 +1,6 @@
 import 'package:burger_king_/core/constants/Colors.dart';
 import 'package:burger_king_/core/utils/data/order/data_order.dart';
-import 'package:burger_king_/views/detail/store_view.dart';
+import 'package:burger_king_/views/detail/detail_store_view.dart';
 import 'package:burger_king_/views/drawer/drawer_address_view.dart';
 import 'package:burger_king_/views/order/order_final_view.dart';
 import 'package:burger_king_/views/splash/splash_view.dart';

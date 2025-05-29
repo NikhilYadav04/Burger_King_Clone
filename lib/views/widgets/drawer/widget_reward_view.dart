@@ -1,5 +1,5 @@
-import 'package:burger_king_/constants/Colors.dart';
-import 'package:burger_king_/views/detail/history_view.dart';
+import 'package:burger_king_/core/constants/Colors.dart';
+import 'package:burger_king_/views/detail/detail_history_view.dart';
 import 'package:burger_king_/views/shared/widget_dialog_popup.dart';
 import 'package:burger_king_/views/appbar/app_bar_view.dart';
 import 'package:flutter/material.dart';

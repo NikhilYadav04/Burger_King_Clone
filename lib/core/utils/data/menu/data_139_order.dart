@@ -1,4 +1,4 @@
-import 'package:burger_king_/models/menu/order_model.dart';
+import 'package:burger_king_/models/menu/model_order.dart';
 
 final List<Order> Order139List= [
  Order(image: "assets/Menu/139/A.png", Name: "Veg Hooper Jr+Coco Cola"),

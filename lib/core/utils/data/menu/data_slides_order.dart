@@ -1,4 +1,4 @@
-import 'package:burger_king_/models/menu/drinks_model_order.dart';
+import 'package:burger_king_/models/menu/model_drinks_order.dart';
 
 final List<DrinksOrder> SLidesOrderList = [
 DrinksOrder(image: "assets/Menu/Slides/A.png", Name: "French Fries (King)", Energy: "455 Kcal"),

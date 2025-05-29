@@ -1,4 +1,4 @@
-import 'package:burger_king_/constants/Colors.dart';
+import 'package:burger_king_/core/constants/Colors.dart';
 import 'package:burger_king_/views/drawer/drawer_a_view.dart';
 import 'package:burger_king_/views/widgets/detail/widget_menu.dart';
 import 'package:flutter/material.dart';
