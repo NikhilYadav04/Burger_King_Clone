@@ -1,4 +1,5 @@
 import 'package:burger_king_/core/constants/Colors.dart';
+import 'package:burger_king_/core/constants/app_strings.dart';
 import 'package:burger_king_/core/utils/data/order/data_order.dart';
 import 'package:burger_king_/views/detail/detail_store_view.dart';
 import 'package:burger_king_/views/drawer/drawer_address_view.dart';
@@ -107,10 +108,10 @@ Widget Confetti(ConfettiController _confettiController) {
   );
 }
 
-Widget StoreContainer(BuildContext context,bool lights) {
+Widget StoreContainer(BuildContext context, bool switchIndicator) {
   return GestureDetector(
     onTap: () {
-      lights
+      switchIndicator
           ? Navigator.push(
               context,
               PageTransition(
@@ -127,9 +128,9 @@ Widget StoreContainer(BuildContext context,bool lights) {
           color: Colors.white, borderRadius: BorderRadius.circular(18)),
       child: Row(
         children: [
-          lights
+          switchIndicator
               ? Text(
-                  "    Select Your Address",
+                  "    ${AppStrings.selectAddressText}",
                   style: TextStyle(
                     fontFamily: "Nova",
                     fontWeight: FontWeight.bold,
@@ -137,7 +138,7 @@ Widget StoreContainer(BuildContext context,bool lights) {
                   ),
                 )
               : Text(
-                  "    Tap To Pick your Store",
+                  "    ${AppStrings.pickStoreText}",
                   style: TextStyle(
                     fontFamily: "Nova",
                     fontWeight: FontWeight.bold,
@@ -159,7 +160,7 @@ Widget StoreContainer(BuildContext context,bool lights) {
 
 Widget DineInText(bool lights) {
   return Text(
-    "Dine-in/Takeaway",
+    AppStrings.dineInText,
     style: TextStyle(
         fontFamily: "Nova",
         color: lights ? Colors.white : SwitchColor,
@@ -169,10 +170,61 @@ Widget DineInText(bool lights) {
 
 Widget DeliveryText(bool lights) {
   return Text(
-    "Delivery",
+    AppStrings.deliveryText,
     style: TextStyle(
         fontFamily: "Nova",
         color: lights ? SwitchColor : Colors.white,
         fontSize: 18),
+  );
+}
+
+Widget Search() {
+  return IconButton(
+    onPressed: () {},
+    icon: Icon(
+      Icons.search,
+      color: Colors.white,
+      size: 32,
+    ),
+  );
+}
+
+Widget DeliverText(bool switchIndicator) {
+  return switchIndicator
+      ? Text(
+          AppStrings.deliveryToText,
+          style:
+              TextStyle(fontFamily: "Nova", fontSize: 18, color: SwitchColor),
+        )
+      : Text(
+          AppStrings.dineInAtText,
+          style:
+              TextStyle(fontFamily: "Nova", fontSize: 18, color: SwitchColor),
+        );
+}
+
+Widget Deliver(BuildContext context,bool switchIndicator) {
+  return Row(
+    children: [
+      switchIndicator
+          ? Icon(
+              Icons.location_on,
+              color: SwitchColor,
+              size: 23,
+            )
+          : Icon(
+              Icons.store,
+              color: SwitchColor,
+              size: 23,
+            ),
+      Container(margin: EdgeInsets.only(left: 7), child: DeliverText(switchIndicator)),
+      Container(
+        margin: EdgeInsets.only(left: 8, right: 10),
+        width: 3,
+        height: 20,
+        color: Colors.brown,
+      ),
+      StoreContainer(context, switchIndicator)
+    ],
   );
 }

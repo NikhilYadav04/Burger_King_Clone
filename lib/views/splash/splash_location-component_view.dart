@@ -1,4 +1,5 @@
 import 'package:burger_king_/core/constants/constants.dart';
+import 'package:burger_king_/core/utils/formatter/sizeConfig.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -26,6 +27,7 @@ class _SplashScreenComponentState extends State<LocationSplashScreenComponent>
     _ShowText();
   }
 
+  //* Show address text after delay of 5 seconds
   void _ShowText() {
     Future.delayed(Duration(seconds: 5), () {
       if (mounted) {
@@ -47,18 +49,21 @@ class _SplashScreenComponentState extends State<LocationSplashScreenComponent>
     return Column(
       children: [
         SizedBox(
-          height: 150,
+          height: 16.8501 * SizeConfig.heightMultiplier,
         ),
-        Flexible(
+        Expanded(
           flex: 1,
           child: LocationAnimation(),
         ),
-        SizedBox(
-          height: 50,
-        ),
-        Flexible(
+        Expanded(
           flex: 3,
-          child: _showText ? TextCity() : Container(),
+          child: _showText
+              ? Padding(
+                  padding: EdgeInsets.only(
+                      top: 5.6167 * SizeConfig.heightMultiplier),
+                  child: Center(child: TextCity()),
+                )
+              : SizedBox(),
         ),
       ],
     );
@@ -67,10 +72,10 @@ class _SplashScreenComponentState extends State<LocationSplashScreenComponent>
   Widget LocationAnimation() {
     return Center(
       child: Container(
-        height: 120,
-        width: 120,
+        height: 13.4808 * SizeConfig.heightMultiplier,
+        width: 29.1970 * SizeConfig.widthMultiplier,
         child: LottieBuilder.asset(
-          "assets/final.json",
+          "assets/animation/final.json",
           repeat: false,
           controller: _animate,
         ),
@@ -79,35 +84,35 @@ class _SplashScreenComponentState extends State<LocationSplashScreenComponent>
   }
 
   Widget TextCity() {
-    return Center(
-      child: Container(
-        child: Center(
-          child: Column(
-            children: [
-              Text(
-                City,
-                style: TextStyle(
-                    fontFamily: "Nova", color: Colors.red, fontSize: 36),
-              ),
-              SizedBox(height: 24),
-              Text(
-                Address1,
-                style: TextStyle(
-                    fontFamily: "Semi",
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.brown[800]),
-              ),
-              Text(
-                Address2,
-                style: TextStyle(
-                    fontFamily: "Semi",
-                    fontSize: 22,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.brown[800]),
-              ),
-            ],
-          ),
+    return Container(
+      child: Center(
+        child: Column(
+          children: [
+            Text(
+              City,
+              style: TextStyle(
+                  fontFamily: "Nova",
+                  color: Colors.red,
+                  fontSize: 4.04403 * SizeConfig.heightMultiplier),
+            ),
+            SizedBox(height: 2.696 * SizeConfig.heightMultiplier),
+            Text(
+              Address1,
+              style: TextStyle(
+                  fontFamily: "Semi",
+                  fontSize: 2.4713 * SizeConfig.heightMultiplier,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.brown[800]),
+            ),
+            Text(
+              Address2,
+              style: TextStyle(
+                  fontFamily: "Semi",
+                  fontSize: 2.4713 * SizeConfig.heightMultiplier,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.brown[800]),
+            ),
+          ],
         ),
       ),
     );

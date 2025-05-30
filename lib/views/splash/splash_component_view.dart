@@ -1,3 +1,4 @@
+import 'package:burger_king_/core/utils/formatter/sizeConfig.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreenComponent extends StatelessWidget {
@@ -11,8 +12,8 @@ class SplashScreenComponent extends StatelessWidget {
             child: Center(
               child: Image.asset(
                 "assets/burger.png",
-                height: 320,
-                width: 320,
+                height: 35.9469*SizeConfig.heightMultiplier,
+                width: 77.8588*SizeConfig.widthMultiplier,
               ),
             ),
           ),

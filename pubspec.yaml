@@ -73,9 +73,9 @@ flutter:
   assets:
     - assets/
     - Icons/
-    - Items/
-    - Items/Crown/
-    - Items/Sellers/
+    - items/
+    - items/Crown/
+    - items/Sellers/
     - assets/sellcard/
     - assets/Drinks/
     - assets/Deserts/

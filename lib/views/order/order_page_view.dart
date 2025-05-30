@@ -2,7 +2,7 @@ import 'package:burger_king_/core/constants/Colors.dart';
 import 'package:burger_king_/views/splash/splash_view.dart';
 import 'package:burger_king_/core/utils/data/order/data_order.dart';
 import 'package:burger_king_/models/order/model_order.dart';
-import 'package:burger_king_/views/appbar/app_bar_view.dart';
+import 'package:burger_king_/views/bottombar/bottom_bar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 

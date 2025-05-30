@@ -2,7 +2,7 @@ import 'dart:ui';
 
 class AppColor {
   static const Color backGround = Color(0xFFF8EBDB);
-  static const Color brownColor = Color(0xFFF8EBDB);
+  static const Color brownColor = Color(0xFF512314);
   static const Color switchColor = Color(0xFFEE7700);
   static const Color lineColor = Color(0xFF723A1C);
   static const Color cardColor = Color(0xFFFFFCF7);

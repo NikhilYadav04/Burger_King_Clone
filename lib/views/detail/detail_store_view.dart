@@ -1,6 +1,6 @@
 import 'package:burger_king_/core/constants/Colors.dart';
 import 'package:burger_king_/core/constants/constants.dart';
-import 'package:burger_king_/views/appbar/app_bar_view.dart';
+import 'package:burger_king_/views/bottombar/bottom_bar_view.dart';
 import 'package:burger_king_/views/widgets/detail/widget_store_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

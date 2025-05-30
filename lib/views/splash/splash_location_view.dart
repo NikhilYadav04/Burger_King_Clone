@@ -1,7 +1,7 @@
-
-import 'package:burger_king_/core/constants/Colors.dart';
+import 'package:burger_king_/core/constants/app_colors.dart';
+import 'package:burger_king_/core/utils/formatter/sizeConfig.dart';
 import 'package:burger_king_/views/splash/splash_location-component_view.dart';
-import 'package:burger_king_/views/appbar/app_bar_view.dart';
+import 'package:burger_king_/views/bottombar/bottom_bar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -10,21 +10,25 @@ class LocationSplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //* After 5 Seconds, Navigate to Home Screen
     Future.delayed(
-        Duration(seconds: 11),
+        Duration(seconds: 5),
         () => {
-              Navigator.push(
-                  context,
-                  PageTransition(
-                      child: AppBarScreen(),
-                      type: PageTransitionType.fade))
+              Navigator.pushAndRemoveUntil(
+                context,
+                PageTransition(
+                    child: AppBarScreen(), type: PageTransitionType.fade),
+                (Route<dynamic> route) => false,
+              )
             });
 
     return Scaffold(
       body: Container(
-          padding: EdgeInsets.fromLTRB(0, 80, 0, 0),
-          color: BackGround,
-          child: LocationSplashScreenComponent()),
+          padding: EdgeInsets.only(top: 8.9867*SizeConfig.heightMultiplier),
+          color: AppColor.backGround,
+          child: Center(
+            child: LocationSplashScreenComponent(),
+          )),
     );
   }
 }

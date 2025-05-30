@@ -4,7 +4,7 @@ import 'package:burger_king_/core/utils/data/order/data_order.dart';
 import 'package:burger_king_/views/shared/widget_cards_payment.dart';
 import 'package:burger_king_/views/order/order_coupoun_view.dart';
 import 'package:burger_king_/views/shared/widget_order_animation.dart';
-import 'package:burger_king_/views/appbar/app_bar_view.dart';
+import 'package:burger_king_/views/bottombar/bottom_bar_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';

@@ -1,5 +1,5 @@
-
-import 'package:burger_king_/core/constants/Colors.dart';
+import 'package:burger_king_/core/constants/app_colors.dart';
+import 'package:burger_king_/core/utils/formatter/sizeConfig.dart';
 import 'package:burger_king_/views/splash/splash_location_view.dart';
 import 'package:burger_king_/views/splash/splash_component_view.dart';
 
@@ -13,16 +13,21 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 10), ()=> {
-      Navigator.push(
-          context,
-          PageTransition(
-              child: LocationSplashScreen(), type: PageTransitionType.fade))
-    });
+    Future.delayed(
+        Duration(seconds: 1),
+        () => {
+              Navigator.push(
+                  context,
+                  PageTransition(
+                      child: LocationSplashScreen(),
+                      type: PageTransitionType.fade))
+            });
 
     return Container(
-        padding: EdgeInsets.fromLTRB(0, 80, 0, 0),
-        color: BackGround,
-        child: SplashScreenComponent());
+      padding: EdgeInsets.only(top: 5.0550*SizeConfig.heightMultiplier),
+        color: AppColor.backGround,
+        child: Center(
+          child: SplashScreenComponent(),
+        ));
   }
 }
