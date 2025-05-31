@@ -46,6 +46,7 @@ dependencies:
   confetti: ^0.7.0
   flick_video_player: ^0.8.0
   video_player: ^2.8.7
+  provider: ^6.1.5
 
 dev_dependencies:
   flutter_test:
@@ -64,31 +65,22 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - assets/animation/
+    - assets/deserts/
+    - assets/drinks/
+    - assets/menu/
+    - assets/sellcard/
+    - assets/wall/
     - Icons/
     - items/
-    - items/Crown/
-    - items/Sellers/
-    - assets/sellcard/
-    - assets/Drinks/
-    - assets/Deserts/
-    - assets/Menu/
-    - assets/Menu/Combos/
-    - assets/Menu/139/
-    - assets/Menu/Whooper/
-    - assets/Menu/Drinks/
-    - assets/Menu/Cafe/
-    - assets/Menu/Slides/
-    - assets/Wall/
+    - items/crown/
+    - items/sellers/
     - assets/video.mp4
-    - assets/animation/
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

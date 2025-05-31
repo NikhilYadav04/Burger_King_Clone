@@ -3,7 +3,7 @@ import 'package:burger_king_/core/constants/Colors.dart';
 import 'package:burger_king_/core/constants/app_colors.dart';
 import 'package:burger_king_/core/constants/app_images.dart';
 import 'package:burger_king_/core/constants/app_strings.dart';
-import 'package:burger_king_/core/constants/constants.dart';
+import 'package:burger_king_/models/home/model_best_seller.dart';
 import 'package:burger_king_/views/order/order_seller_card_view.dart';
 import 'package:burger_king_/views/primary/primary_crown-rewards_view.dart';
 import 'package:burger_king_/views/primary/primary_menu_view.dart';
@@ -224,7 +224,7 @@ Widget imageSlider3(BuildContext context, PageController _controller) {
       ));
 }
 
-Widget BottomSh(String text, String image, String food, String amount,
+Widget bottomSh(String text, String image, String food, String amount,
     String Coup, BuildContext context) {
   return Container(
     margin: EdgeInsets.only(top: 0),
@@ -353,7 +353,7 @@ Widget sliderCard(BuildContext context, String text, String image,
           backgroundColor: Colors.transparent,
           context: context,
           builder: (BuildContext context) {
-            return BottomSh(text, imageLogo, food, amount, Coup, context);
+            return bottomSh(text, imageLogo, food, amount, Coup, context);
           });
     },
     child: Container(
@@ -363,112 +363,120 @@ Widget sliderCard(BuildContext context, String text, String image,
   );
 }
 
-Widget RewardCard(BuildContext context) {
+Widget rewardCard(BuildContext context) {
   return Container(
-    padding: EdgeInsets.all(12),
-    margin: EdgeInsets.only(right: 20, left: 15),
+    margin: EdgeInsets.symmetric(horizontal: 12),
+    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
     height: 110,
-    width: 380,
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10), color: Colors.white),
     child: Row(
       children: [
-        Column(
-          children: [
-            Container(
-              margin: EdgeInsets.only(left: 10),
-              child: Text(
-                "Crown Rewards Balance",
-                style: TextStyle(
-                    fontFamily: "Nova", fontSize: 21, color: Colors.black),
-              ),
-            ),
-            SizedBox(
-              height: 14,
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    PageTransition(
-                        child: Crown(), type: PageTransitionType.fade));
-              },
-              child: Container(
-                margin: EdgeInsets.only(right: 50, left: 0),
-                height: 30,
-                width: 170,
-                decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadiusDirectional.circular(8)),
-                child: Center(
-                  child: Text(
-                    "Redeem Points Now",
-                    style: TextStyle(
-                        color: Colors.white, fontFamily: "Nova", fontSize: 16),
-                  ),
-                ),
-              ),
-            )
-          ],
-        ),
-        Column(
-          children: [
-            Container(
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 28,
-                  ),
-                  Image.asset(
-                    "assets/iconcr.png",
-                    height: 26,
-                    width: 26,
-                    color: Colors.black,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    "793",
-                    style: TextStyle(
-                        fontFamily: "Nova", fontSize: 22, color: Colors.black),
-                  )
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 14,
-            ),
-            Column(
-              children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        PageTransition(
-                            child: Crown(), type: PageTransitionType.fade));
-                  },
-                  child: Container(
-                      margin: EdgeInsets.only(left: 22),
-                      child: Text(
-                        "Know More",
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold,
+        Expanded(
+            flex: 6,
+            child: LayoutBuilder(builder: (context, constraints) {
+              return Padding(
+                padding: EdgeInsets.only(left: constraints.maxWidth*0.01),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Crown Rewards Balance",
+                      style: TextStyle(
+                          fontFamily: "Nova", fontSize: 21, color: Colors.black),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            PageTransition(
+                                child: Crown(), type: PageTransitionType.fade));
+                      },
+                      child: Container(
+                        margin:
+                            EdgeInsets.only(top: constraints.maxHeight * 0.18),
+                        height: 30,
+                        width: 170,
+                        decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadiusDirectional.circular(8)),
+                        child: Center(
+                          child: Text(
+                            "Redeem Points Now",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "Nova",
+                                fontSize: 16),
+                          ),
                         ),
-                      )),
+                      ),
+                    )
+                  ],
                 ),
-                Container(
-                  margin: EdgeInsets.only(left: 20),
-                  height: 1.5,
-                  width: 88,
-                  color: Colors.red,
-                )
-              ],
-            ),
-          ],
-        )
+              );
+            })),
+        Expanded(
+            flex: 3,
+            child: LayoutBuilder(builder: (context, constraints) {
+              return Container(
+                padding: EdgeInsets.only(right: constraints.maxWidth*0.07),
+                //color: Colors.amber,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Image.asset(
+                            "assets/iconcr.png",
+                            height: 26,
+                            width: 26,
+                            color: Colors.black,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: constraints.maxWidth * 0.05),
+                            child: Text(
+                              "793",
+                              style: TextStyle(
+                                  fontFamily: "Nova",
+                                  fontSize: 22,
+                                  color: Colors.black),
+                            ),
+                          )
+                        ],
+                      ),
+                    Padding(
+                      padding: EdgeInsets.only(top: constraints.maxHeight * 0.18),
+                      child: Column(
+                        children: [
+                          InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    PageTransition(
+                                        child: Crown(),
+                                        type: PageTransitionType.fade));
+                              },
+                              child: Text(
+                                "Know More",
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )),
+                          Container(
+                            height: 1.5,
+                            width: 88,
+                            color: Colors.red,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }))
       ],
     ),
   );
@@ -488,84 +496,76 @@ Widget imageSlider4(BuildContext context, PageController _sellerController) {
               children: [
                 Column(
                   children: [
-                    sellerSliderCard(
-                        "Items/Sellers/3.jpg",
-                        "Veg Hooper",
-                        179,
-                        "₹ 179/-",
-                        "681.2 Kcal",
-                        "assets/sellcard/A.jpg",
-                        "VEG HOOPER",
-                        "assets/sellcard/1.jpg",
-                        "assets/sellcard/1.jpg",
-                        "₹ 328/-",
-                        "₹ 338/-",
-                        328,
-                        338,
-                        "Veg Hooper",
-                        "Our signature Whooper with 7 layers between the buns.",
-                        context),
-                    SizedBox(
-                      height: 15,
+                    Expanded(
+                      flex: 1,
+                      child: sellerSliderCard(
+                          AppImages.sellcard_1,
+                          AppImages.sellcard_A,
+                          AppImages.sellcardMed,
+                          AppImages.sellcardLarge,
+                          bestSellerDataList[0].burgerName,
+                          bestSellerDataList[0].burgerDesc,
+                          bestSellerDataList[0].burgerEnergy,
+                          bestSellerDataList[0].burgerPrice,
+                          bestSellerDataList[0].burgerMediumMealPrice,
+                          bestSellerDataList[0].burgerLargeMealPrice,
+                          context),
                     ),
-                    sellerSliderCard(
-                        "Items/Sellers/4.jpg",
-                        "BK Veggie Burger",
-                        139,
-                        "₹ 139/-",
-                        "352.5 Kcal",
-                        "assets/sellcard/B.jpg",
-                        "BK VEGGIE BURGER",
-                        "assets/sellcard/2.jpg",
-                        "assets/sellcard/2.jpg",
-                        "₹ 288/-",
-                        "₹ 298/-",
-                        288,
-                        298,
-                        "BK Veggie Burger",
-                        "Our Tribute to classic american taste with BK veg patty",
-                        context),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: sellerSliderCard(
+                          AppImages.sellcard_2,
+                          AppImages.sellcard_B,
+                          AppImages.sellcardMed,
+                          AppImages.sellcardLarge,
+                          bestSellerDataList[1].burgerName,
+                          bestSellerDataList[1].burgerDesc,
+                          bestSellerDataList[1].burgerEnergy,
+                          bestSellerDataList[1].burgerPrice,
+                          bestSellerDataList[1].burgerMediumMealPrice,
+                          bestSellerDataList[1].burgerLargeMealPrice,
+                          context),
+                    ),
                   ],
                 ),
                 Column(
                   children: [
-                    sellerSliderCard(
-                        "Items/Sellers/1.jpg",
-                        "BK Chicken Burger",
-                        149,
-                        "₹ 149/-",
-                        "415 Kcal",
-                        "assets/sellcard/C.jpg",
-                        "BK CHICKEN BURGER",
-                        "assets/sellcard/3.jpg",
-                        "assets/sellcard/3.jpg",
-                        "₹ 298/-",
-                        "₹ 308/-",
-                        298,
-                        308,
-                        "Chicken Burger",
-                        "Our Tribute to classic american taste with BK chicken patty",
-                        context),
-                    SizedBox(
-                      height: 15,
+                    Expanded(
+                      flex: 1,
+                      child: sellerSliderCard(
+                          AppImages.sellcard_3,
+                          AppImages.sellcard_C,
+                          AppImages.sellcardMed,
+                          AppImages.sellcardLarge,
+                          bestSellerDataList[2].burgerName,
+                          bestSellerDataList[2].burgerDesc,
+                          bestSellerDataList[2].burgerEnergy,
+                          bestSellerDataList[2].burgerPrice,
+                          bestSellerDataList[2].burgerMediumMealPrice,
+                          bestSellerDataList[2].burgerLargeMealPrice,
+                          context),
                     ),
-                    sellerSliderCard(
-                        "Items/Sellers/2.jpg",
-                        "Paneer Royale Burger",
-                        199,
-                        "₹ 199/-",
-                        "557.5 Kcal",
-                        "assets/sellcard/D.png",
-                        "PANEER ROYALE BURGER",
-                        "assets/sellcard/4.jpg",
-                        "assets/sellcard/4A.jpg",
-                        "₹ 358/-",
-                        "₹ 368/-",
-                        358,
-                        368,
-                        "Paneer Burger",
-                        "Thick Paneer Patty, loads of sauces in soft square masala patty",
-                        context),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: sellerSliderCard(
+                          AppImages.sellcard_4A,
+                          AppImages.sellcard_D,
+                          AppImages.sellcardMed,
+                          AppImages.sellcardLarge,
+                          bestSellerDataList[3].burgerName,
+                          bestSellerDataList[3].burgerDesc,
+                          bestSellerDataList[3].burgerEnergy,
+                          bestSellerDataList[3].burgerPrice,
+                          bestSellerDataList[3].burgerMediumMealPrice,
+                          bestSellerDataList[3].burgerLargeMealPrice,
+                          context),
+                    ),
                   ],
                 ),
               ],
@@ -610,21 +610,16 @@ Widget imageSlider4(BuildContext context, PageController _sellerController) {
 }
 
 Widget sellerSliderCard(
-    String image,
-    String pName,
-    double origprice,
-    String origPrice,
-    String energy,
-    String orderImage,
-    String NAME,
-    String Imagee,
-    String Image1,
-    String medPrice,
-    String largePrice,
-    double MediumProductPrice,
-    double LargeProductPrice,
-    String cartName,
-    String CartDesc,
+    String burgerImage,
+    String burgerImageDisplay,
+    String burgerImageMedium,
+    String burgerImageLarge,
+    String burgerName,
+    String burgerDesc,
+    String burgerEnergy,
+    num burgerPrice,
+    num burgerMediumPrice,
+    num burgerLargePrice,
     BuildContext context) {
   return Container(
     height: 175,
@@ -641,100 +636,112 @@ Widget sellerSliderCard(
             child: Padding(
               padding: EdgeInsets.only(top: 25.0),
               child: Image.asset(
-                image,
+                burgerImage,
               ),
             ),
           ),
           Expanded(
             flex: 5,
             child: Container(
-              color: Colors.amber,
               padding: EdgeInsets.only(left: 12, top: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    pName,
-                    style: TextStyle(
-                        fontFamily: "Nova", fontSize: 23, color: Brown),
+                  Expanded(
+                    flex: 1,
+                    child: Text(
+                      burgerName,
+                      style: TextStyle(
+                          fontFamily: "Nova", fontSize: 23, color: Brown),
+                    ),
                   ),
-                  Text(
-                    Seller3,
-                    style: TextStyle(
-                        fontFamily: "Nova",
-                        fontSize: 15,
-                        color: Colors.brown.shade700),
+                  Expanded(
+                    flex: 1,
+                    child: Text(
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      burgerDesc,
+                      style: TextStyle(
+                          fontFamily: "Nova",
+                          fontSize: 15.5,
+                          color: Colors.brown.shade700),
+                    ),
                   ),
-                  Text(
-                    "${energy}",
-                    style: TextStyle(
-                        fontFamily: "Nova",
-                        fontSize: 15,
-                        color: Colors.brown.shade700),
+                  Expanded(
+                    flex: 1,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        burgerEnergy,
+                        style: TextStyle(
+                            fontFamily: "Nova",
+                            fontSize: 18,
+                            color: Colors.brown.shade700),
+                      ),
+                    ),
                   ),
-                  Container(
-                    margin: EdgeInsets.only(top: 6),
-                    child: Row(
-                      children: [
-                        Text(
-                          origPrice,
-                          style: TextStyle(
-                              fontFamily: "Nova", fontSize: 20, color: Brown),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return Dialog(
-                                    child: SellerCard(
-                                      OriginalProductPrice: origprice,
-                                      origPrice: origPrice,
-                                      PNAME: pName,
-                                      Energy: energy,
-                                      OrderImage: orderImage,
-                                      Name: NAME,
-                                      Image: Imagee,
-                                      Image1: Image1,
-                                      medPrice: medPrice,
-                                      largPrice: largePrice,
-                                      MediumProductPrice: MediumProductPrice,
-                                      LargeProductPrice: LargeProductPrice,
-                                      CartName: cartName,
-                                      CartDesc: CartDesc,
-                                      context: context,
-                                    ),
-                                    backgroundColor: Colors.transparent,
-                                  );
-                                });
-                          },
-                          child: Container(
-                            height: 35,
-                            width: 85,
-                            decoration: BoxDecoration(
-                                color: Colors.red,
-                                borderRadius:
-                                    BorderRadiusDirectional.circular(14)),
-                            child: Row(children: [
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Text(
-                                "Add",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontFamily: "Nova",
-                                    fontSize: 16),
-                              ),
-                              Icon(
-                                Icons.add,
-                                size: 18,
-                                color: Colors.white,
-                              )
-                            ]),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "₹ ${burgerPrice}",
+                            style: TextStyle(
+                                fontFamily: "Nova", fontSize: 20, color: Brown),
                           ),
-                        ),
-                      ],
+                          GestureDetector(
+                            onTap: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return Dialog(
+                                      child: SellerCard(
+                                          burgerName: burgerName,
+                                          burgerImage: burgerImage,
+                                          burgerEnergy: burgerEnergy,
+                                          burgerPrice: burgerPrice,
+                                          burgerMediumMealPrice:
+                                              burgerMediumPrice,
+                                          burgerLargeMealPrice:
+                                              burgerLargePrice,
+                                          context: context),
+                                      backgroundColor: Colors.transparent,
+                                    );
+                                  });
+                            },
+                            child: Container(
+                              margin: EdgeInsets.only(right: 10),
+                              height: 35,
+                              width: 85,
+                              decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  borderRadius:
+                                      BorderRadiusDirectional.circular(14)),
+                              child: Row(children: [
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text(
+                                  "Add",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: "Nova",
+                                      fontSize: 16),
+                                ),
+                                Icon(
+                                  Icons.add,
+                                  size: 18,
+                                  color: Colors.white,
+                                )
+                              ]),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   )
                 ],

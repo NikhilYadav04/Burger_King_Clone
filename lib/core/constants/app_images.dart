@@ -112,36 +112,37 @@ class AppImages {
   static const String whooper_E = "assets/menu/Whooper/E.png";
   static const String whooper_F = "assets/menu/Whooper/F.png";
 
-  static const String sellcard_1 = "assets/menu/sellcard/1.jpg";
-  static const String sellcard_2 = "assets/menu/sellcard/2.jpg";
-  static const String sellcard_3 = "assets/menu/sellcard/3.jpg";
-  static const String sellcard_4 = "assets/menu/sellcard/4.jpg";
-  static const String sellcard_4A = "assets/menu/sellcard/5.jpg";
-  static const String sellcard_A = "assets/menu/sellcard/A.jpg";
-  static const String sellcard_B = "assets/menu/sellcard/B.jpg";
-  static const String sellcard_C = "assets/menu/sellcard/C.jpg";
-  static const String sellcard_D = "assets/menu/sellcard/D.jpg";
-  static const String sellcardCheese = "assets/menu/sellcard/cheese.jpg";
-  static const String sellcardFriesL = "assets/menu/sellcard/friesL.jpg";
-  static const String sellcardFriesM = "assets/menu/sellcard/friesM.jpg";
-  static const String sellcardLarge = "assets/menu/sellcard/large.jpg";
-  static const String sellcardMed = "assets/menu/sellcard/med.jpg";
-  static const String sellcardOnion = "assets/menu/sellcard/onion.jpg";
-  static const String sellcardPatty = "assets/menu/sellcard/patty.jpg";
-  static const String sellcardPeriPeri = "assets/menu/sellcard/PeriPeri.jpg";
-  static const String sellcardPickle = "assets/menu/sellcard/pickle.jpg";
-  static const String sellcardSpring = "assets/menu/sellcard/spring.jpg";
-  static const String sellcardTomato = "assets/menu/sellcard/tomato.jpg";
+  //* sellcard
+  static const String sellcard_1 = "assets/sellcard/1.jpg";
+  static const String sellcard_2 = "assets/sellcard/2.jpg";
+  static const String sellcard_3 = "assets/sellcard/3.jpg";
+  static const String sellcard_4 = "assets/sellcard/4.jpg";
+  static const String sellcard_4A = "assets/sellcard/4A.jpg";
+  static const String sellcard_A = "assets/sellcard/A.jpg";
+  static const String sellcard_B = "assets/sellcard/B.jpg";
+  static const String sellcard_C = "assets/sellcard/C.jpg";
+  static const String sellcard_D = "assets/sellcard/D.jpg";
+  static const String sellcardCheese = "assets/sellcard/cheese.jpg";
+  static const String sellcardFriesL = "assets/sellcard/friesL.jpg";
+  static const String sellcardFriesM = "assets/sellcard/friesM.jpg";
+  static const String sellcardLarge = "assets/sellcard/large.jpg";
+  static const String sellcardMed = "assets/sellcard/med.jpg";
+  static const String sellcardOnion = "assets/sellcard/onion.jpg";
+  static const String sellcardPatty = "assets/sellcard/patty.jpg";
+  static const String sellcardPeriPeri = "assets/sellcard/PeriPeri.jpg";
+  static const String sellcardPickle = "assets/sellcard/pickle.jpg";
+  static const String sellcardSpring = "assets/sellcard/spring.jpg";
+  static const String sellcardTomato = "assets/sellcard/tomato.jpg";
 
-  static const String wall_1 = "assets/menu/wall/1.png";
-  static const String wall_2 = "assets/menu/wall/2.png";
-  static const String wall_3 = "assets/menu/wall/3.png";
-  static const String wall_A = "assets/menu/wall/A.png";
-  static const String wall_last = "assets/menu/wall/last.png";
+  //* wall
+  static const String wall_1 = "assets/wall/1.png";
+  static const String wall_2 = "assets/wall/2.png";
+  static const String wall_3 = "assets/wall/3.png";
+  static const String wall_A = "assets/wall/A.png";
+  static const String wall_last = "assets/wall/last.png";
 }
 
 class AppImagesItems {
-
   //* general
   static const String items1 = "items/1.jpg";
   static const String items2 = "items/2.jpg";
@@ -153,15 +154,15 @@ class AppImagesItems {
   static const String itemsB = "items/B.jpg";
   static const String itemsC = "items/C.jpg";
 
-   static const String itemsDel = "items/del.png";
-   static const String itemsDine = "items/dine.png";
-   static const String itemsKing1 = "items/King1.jpg";
-   static const String itemsKing2 = "items/King2.jpg";
-   static const String itemsKing3 = "items/King3.jpg";
-   static const String itemsKingCircle1 = "items/KingCircl1.png";
-   static const String itemsKingCircle2 = "items/KingCircl2.png";
-   static const String itemsKingCircle3 = "items/KingCircl3.png";
-   static const String itemsTake = "items/take.png";
+  static const String itemsDel = "items/del.png";
+  static const String itemsDine = "items/dine.png";
+  static const String itemsKing1 = "items/King1.jpg";
+  static const String itemsKing2 = "items/King2.jpg";
+  static const String itemsKing3 = "items/King3.jpg";
+  static const String itemsKingCircle1 = "items/KingCircl1.png";
+  static const String itemsKingCircle2 = "items/KingCircl2.png";
+  static const String itemsKingCircle3 = "items/KingCircl3.png";
+  static const String itemsTake = "items/take.png";
 
   //* crown
   static const String crown_1 = "items/crown/1.jpg";
@@ -182,7 +183,7 @@ class AppImagesItems {
   static const String crown_E = "items/crown/E.jpg";
   static const String crown_F = "items/crown/F.jpg";
   static const String crown_G = "items/crown/G.jpg";
-  
+
   //* sellers
   static const String sellers_1 = "items/sellers/1.jpg";
   static const String sellers_2 = "items/sellers/2.jpg";
