@@ -1,15 +1,18 @@
 import 'package:another_carousel_pro/another_carousel_pro.dart';
+import 'package:burger_king_/controllers/controller_crown_reward.dart';
 import 'package:burger_king_/core/constants/Colors.dart';
 import 'package:burger_king_/core/constants/app_colors.dart';
 import 'package:burger_king_/core/constants/app_images.dart';
 import 'package:burger_king_/core/constants/app_strings.dart';
 import 'package:burger_king_/models/home/model_best_seller.dart';
+import 'package:burger_king_/models/home/model_king_deals.dart';
 import 'package:burger_king_/views/order/order_seller_card_view.dart';
 import 'package:burger_king_/views/primary/primary_crown-rewards_view.dart';
 import 'package:burger_king_/views/primary/primary_menu_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 
 Widget DrawerIcon(GlobalKey<ScaffoldState> scaffoldKey) {
   return IconButton(
@@ -159,29 +162,11 @@ Widget imageSlider3(BuildContext context, PageController _controller) {
               controller: _controller,
               children: [
                 sliderCard(
-                    context,
-                    "CHOCOSHAKE",
-                    AppImagesItems.itemsKing1,
-                    AppImagesItems.itemsKingCircle1,
-                    "Choco Shake",
-                    "399",
-                    "SHAKE"),
+                    context, dataKingDeals[0], AppImagesItems.itemsKing1),
                 sliderCard(
-                    context,
-                    "PERIPERI",
-                    AppImagesItems.itemsKing2,
-                    AppImagesItems.itemsKingCircle2,
-                    "Peri Peri Fries",
-                    "329",
-                    "PERIPERI"),
+                    context, dataKingDeals[1], AppImagesItems.itemsKing2),
                 sliderCard(
-                    context,
-                    "BKVEGGIE",
-                    AppImagesItems.itemsKing3,
-                    AppImagesItems.itemsKingCircle3,
-                    "Veggie Burger",
-                    "299",
-                    "BKVEGGIE")
+                    context, dataKingDeals[2], AppImagesItems.itemsKing3),
               ],
             ),
           ),
@@ -224,8 +209,7 @@ Widget imageSlider3(BuildContext context, PageController _controller) {
       ));
 }
 
-Widget bottomSh(String text, String image, String food, String amount,
-    String Coup, BuildContext context) {
+Widget bottomSh(ModelKingDeals model , BuildContext context) {
   return Container(
     margin: EdgeInsets.only(top: 0),
     width: double.infinity,
@@ -264,14 +248,14 @@ Widget bottomSh(String text, String image, String food, String amount,
                 height: 150,
                 width: 150,
                 child: CircleAvatar(
-                  child: Image.asset(image),
+                  child: Image.asset(model.image),
                 ),
               ),
               SizedBox(
                 height: 18,
               ),
               Text(
-                text,
+                model.dealName,
                 style: TextStyle(
                     fontFamily: "HornB",
                     color: Colors.black,
@@ -282,7 +266,7 @@ Widget bottomSh(String text, String image, String food, String amount,
                 height: 10,
               ),
               Text(
-                "Free ${food} on Orders Above Rs.${amount}",
+                "Free ${model.dealDescName} on Orders Above Rs.${model.dealPrice}",
                 style: TextStyle(
                     fontFamily: "Nova",
                     color: Colors.grey.shade700,
@@ -305,7 +289,7 @@ Widget bottomSh(String text, String image, String food, String amount,
                     ),
                     Center(
                       child: Text(
-                        Coup,
+                        model.dealCode,
                         style: TextStyle(
                             fontFamily: "HornB",
                             color: Colors.black,
@@ -345,15 +329,14 @@ Widget bottomSh(String text, String image, String food, String amount,
   );
 }
 
-Widget sliderCard(BuildContext context, String text, String image,
-    String imageLogo, String food, String amount, String Coup) {
+Widget sliderCard(BuildContext context, ModelKingDeals model, String image) {
   return InkWell(
     onTap: () {
       showModalBottomSheet(
           backgroundColor: Colors.transparent,
           context: context,
           builder: (BuildContext context) {
-            return bottomSh(text, imageLogo, food, amount, Coup, context);
+            return bottomSh(model, context);
           });
     },
     child: Container(
@@ -376,14 +359,16 @@ Widget rewardCard(BuildContext context) {
             flex: 6,
             child: LayoutBuilder(builder: (context, constraints) {
               return Padding(
-                padding: EdgeInsets.only(left: constraints.maxWidth*0.01),
+                padding: EdgeInsets.only(left: constraints.maxWidth * 0.01),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "Crown Rewards Balance",
                       style: TextStyle(
-                          fontFamily: "Nova", fontSize: 21, color: Colors.black),
+                          fontFamily: "Nova",
+                          fontSize: 21,
+                          color: Colors.black),
                     ),
                     GestureDetector(
                       onTap: () {
@@ -418,63 +403,70 @@ Widget rewardCard(BuildContext context) {
         Expanded(
             flex: 3,
             child: LayoutBuilder(builder: (context, constraints) {
-              return Container(
-                padding: EdgeInsets.only(right: constraints.maxWidth*0.07),
-                //color: Colors.amber,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Image.asset(
-                            "assets/iconcr.png",
-                            height: 26,
-                            width: 26,
-                            color: Colors.black,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: constraints.maxWidth * 0.05),
-                            child: Text(
-                              "793",
-                              style: TextStyle(
-                                  fontFamily: "Nova",
-                                  fontSize: 22,
-                                  color: Colors.black),
+              return Consumer<ProviderCrownReward>(
+                builder: (context, _provider, _) {
+                  return Container(
+                    padding:
+                        EdgeInsets.only(right: constraints.maxWidth * 0.07),
+                    //color: Colors.amber,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Image.asset(
+                              AppImages.menuIconCR,
+                              height: 26,
+                              width: 26,
+                              color: Colors.black,
                             ),
-                          )
-                        ],
-                      ),
-                    Padding(
-                      padding: EdgeInsets.only(top: constraints.maxHeight * 0.18),
-                      child: Column(
-                        children: [
-                          InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    PageTransition(
-                                        child: Crown(),
-                                        type: PageTransitionType.fade));
-                              },
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: constraints.maxWidth * 0.05),
                               child: Text(
-                                "Know More",
+                                "${_provider.crowsCount}",
                                 style: TextStyle(
-                                  color: Colors.red,
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              )),
-                          Container(
-                            height: 1.5,
-                            width: 88,
-                            color: Colors.red,
-                          )
-                        ],
-                      ),
+                                    fontFamily: "Nova",
+                                    fontSize: 22,
+                                    color: Colors.black),
+                              ),
+                            )
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              top: constraints.maxHeight * 0.18),
+                          child: Column(
+                            children: [
+                              InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        PageTransition(
+                                            child: Crown(),
+                                            type: PageTransitionType.fade));
+                                  },
+                                  child: Text(
+                                    "Know More",
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )),
+                              Container(
+                                height: 1.5,
+                                width: 88,
+                                color: Colors.red,
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  );
+                },
               );
             }))
       ],
@@ -702,6 +694,8 @@ Widget sellerSliderCard(
                                       child: SellerCard(
                                           burgerName: burgerName,
                                           burgerImage: burgerImage,
+                                          burgerImageDisplay:
+                                              burgerImageDisplay,
                                           burgerEnergy: burgerEnergy,
                                           burgerPrice: burgerPrice,
                                           burgerMediumMealPrice:

@@ -73,6 +73,12 @@ flutter:
     - assets/deserts/
     - assets/drinks/
     - assets/menu/
+    - assets/menu/139/
+    - assets/menu/Cafe/
+    - assets/menu/Combos/
+    - assets/menu/Drinks/
+    - assets/menu/Slides/
+    - assets/menu/Whooper/
     - assets/sellcard/
     - assets/wall/
     - Icons/

@@ -1,4 +1,5 @@
 import 'package:burger_king_/core/constants/Colors.dart';
+import 'package:burger_king_/core/constants/app_images.dart';
 import 'package:burger_king_/core/constants/constants.dart';
 import 'package:burger_king_/views/bottombar/bottom_bar_view.dart';
 import 'package:flick_video_player/flick_video_player.dart';
@@ -146,7 +147,7 @@ class _BKWallScreenState extends State<BKWallScreen> {
 
   Widget Image2() {
     return Image.asset(
-      "assets/Wall/A.png",
+      AppImages.wall_A,
       scale: 2.25,
     );
   }
@@ -177,19 +178,19 @@ class _BKWallScreenState extends State<BKWallScreen> {
         children: [
           Container(
             child: Image.asset(
-              "assets/Wall/1.png",
+              AppImages.wall_1,
               scale: 0.95,
             ),
           ),
           Container(
             child: Image.asset(
-              "assets/Wall/2.png",
+              AppImages.wall_1,
               scale: 0.95,
             ),
           ),
           Container(
             child: Image.asset(
-              "assets/Wall/3.png",
+              AppImages.wall_3,
               scale: 0.95,
             ),
           )
@@ -200,7 +201,7 @@ class _BKWallScreenState extends State<BKWallScreen> {
 
   Widget Image3() {
     return Image.asset(
-      "assets/Wall/last.png",
+      AppImages.wall_last,
       scale: 3.5,
     );
   }

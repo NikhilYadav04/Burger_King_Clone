@@ -1,9 +1,9 @@
 import 'package:burger_king_/core/constants/Colors.dart';
+import 'package:burger_king_/models/home/model_saved_king_deals.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Widget Bottom(String text, String image, String food, String amount,
-    String Coup, BuildContext context) {
+Widget bottomShKing(ModelSavedKingDeals model, BuildContext context) {
   return Container(
     margin: EdgeInsets.only(top: 0),
     width: double.infinity,
@@ -42,14 +42,14 @@ Widget Bottom(String text, String image, String food, String amount,
                 height: 150,
                 width: 150,
                 child: CircleAvatar(
-                  child: Image.asset(image),
+                  child: Image.asset(model.image),
                 ),
               ),
               SizedBox(
                 height: 18,
               ),
               Text(
-                text,
+                model.dealName,
                 style: TextStyle(
                     fontFamily: "HornB",
                     color: Colors.black,
@@ -60,7 +60,7 @@ Widget Bottom(String text, String image, String food, String amount,
                 height: 10,
               ),
               Text(
-                food,
+                "Free ${model.dealDescName} on Orders Above Rs.${model.dealPrice}",
                 style: TextStyle(
                     fontFamily: "Nova",
                     color: Colors.grey.shade700,
@@ -83,7 +83,7 @@ Widget Bottom(String text, String image, String food, String amount,
                     ),
                     Center(
                       child: Text(
-                        Coup,
+                        model.dealCode,
                         style: TextStyle(
                             fontFamily: "HornB",
                             color: Colors.black,
@@ -123,8 +123,8 @@ Widget Bottom(String text, String image, String food, String amount,
   );
 }
 
-Widget appBarCard(int index,int uniqueIndex, void Function() onTap, String text,
-    Color color, double fontSize) {
+Widget appBarCard(int index, int uniqueIndex, void Function() onTap,
+    String text, Color color, double fontSize) {
   return GestureDetector(
     onTap: onTap,
     child: Container(

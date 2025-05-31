@@ -1,12 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:burger_king_/controllers/controller_add_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
 import 'package:burger_king_/core/constants/Colors.dart';
 import 'package:burger_king_/core/constants/app_colors.dart';
-import 'package:burger_king_/models/home/model_add_cart.dart';
 import 'package:burger_king_/views/bottombar/bottom_bar_view.dart';
 import 'package:burger_king_/views/widgets/home/widget_add_cart_page.dart';
+import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class OrderPage extends StatefulWidget {
@@ -34,7 +35,9 @@ class _OrderPageState extends State<OrderPage> {
     return Scaffold(
       bottomNavigationBar: BottomAppBar(
         color: BackGround,
-        child: BottomBar(),
+        child: Consumer<ProviderAddCart>(builder: (context,provider,_){
+          return BottomBar(provider,context,widget.burgerPrice);
+        },),
       ),
       appBar: AppBar(
         backgroundColor: AppColor.brownColor,
@@ -42,7 +45,8 @@ class _OrderPageState extends State<OrderPage> {
         toolbarHeight: 65,
         title: appBarAddCart(context),
       ),
-      body: Stack(
+      body: Consumer<ProviderAddCart>(builder: (context,provider,_){
+        return Stack(
         fit: StackFit.expand,
         children: [
           FractionallySizedBox(
@@ -53,14 +57,15 @@ class _OrderPageState extends State<OrderPage> {
           FractionallySizedBox(
             alignment: Alignment.bottomCenter,
             heightFactor: 1,
-            child: MainBody(),
+            child: MainBody(provider,widget.burgerImage,widget.burgerName,widget.burgerMealType,widget.burgerEnergy),
           )
         ],
-      ),
+        );}),
     );
+      }
   }
 
-  Widget MainBody() {
+  Widget MainBody(ProviderAddCart _provider,String burgerImage,String burgerName,String burgerMealType,String burgerEnergy) {
     return SingleChildScrollView(
       child: Container(
         width: double.infinity,
@@ -73,7 +78,7 @@ class _OrderPageState extends State<OrderPage> {
             children: [
               Container(
                 child: Image.asset(
-                  widget.burgerImage,
+                  burgerImage,
                   height: 160,
                   width: 190,
                 ),
@@ -81,8 +86,11 @@ class _OrderPageState extends State<OrderPage> {
               SizedBox(
                 height: 10,
               ),
-              Text1(widget.burgerName),
-              Text2(widget.burgerMealType, widget.burgerEnergy),
+              Text1(burgerName),
+              SizedBox(
+                height: 10,
+              ),
+              Text2(burgerMealType, burgerEnergy),
               SizedBox(
                 height: 22,
               ),
@@ -95,9 +103,6 @@ class _OrderPageState extends State<OrderPage> {
                 height: 15,
               ),
               Cards(),
-              SizedBox(
-                height: 20,
-              ),
               Text3(),
               SizedBox(
                 height: 15,
@@ -129,7 +134,7 @@ class _OrderPageState extends State<OrderPage> {
     );
   }
 
-  Widget BottomBar() {
+  Widget BottomBar(ProviderAddCart _provider,BuildContext context,num totalPrice) {
     return Container(
       width: double.infinity,
       color: BackGround,
@@ -142,7 +147,7 @@ class _OrderPageState extends State<OrderPage> {
             children: [
               Text(
                 //  "₹ ${widget.cost}/-",
-                "650",
+                "₹ ${totalPrice}/-",
                 style: TextStyle(
                     color: Colors.black, fontFamily: "Nova", fontSize: 23),
               ),
@@ -192,4 +197,4 @@ class _OrderPageState extends State<OrderPage> {
       ),
     );
   }
-}
+

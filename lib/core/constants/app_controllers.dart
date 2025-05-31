@@ -8,4 +8,10 @@ class AppControllers {
   static PageController sellerController = PageController();
   static ConfettiController confettiController =
       ConfettiController(duration: Duration(seconds: 3));
+  
+  //* Saved King deals Controllers
+  static PageController savedKingDealsController = PageController();
+
+  //* Menu
+  static late TabController menuTabController;
 }

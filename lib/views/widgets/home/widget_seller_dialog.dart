@@ -67,18 +67,21 @@ Widget cards(ProviderSellerDialog _provider, String burgerImage,
       children: [
         cardWidget("Burger Only", burgerPrice, burgerImage, () {
           _provider.changeIndex(1);
+          _provider.changeTotalPrice(burgerPrice);
         },
             _provider.refIndex == 1
                 ? AppColor.switchColor
                 : AppColor.brownColor),
         cardWidget("Medium Meal", burgerMediumPrice, AppImages.sellcardMed, () {
           _provider.changeIndex(2);
+           _provider.changeTotalPrice(burgerMediumPrice);
         },
             _provider.refIndex == 2
                 ? AppColor.switchColor
                 : AppColor.brownColor),
         cardWidget("Large Meal", burgerLargePrice, AppImages.sellcardLarge, () {
           _provider.changeIndex(3);
+           _provider.changeTotalPrice(burgerLargePrice);
         },
             _provider.refIndex == 3
                 ? AppColor.switchColor
@@ -157,7 +160,7 @@ Widget cardWidget(String mealType, num price, String image,
   );
 }
 
-Widget buttons(BuildContext context, String burgerImage, String burgerName,
+Widget buttons(BuildContext context,  String burgerImageDisplay,String burgerName,
     String burgerEnergy, String burgerMealType, num burgerPrice) {
   return GestureDetector(
     onTap: () {
@@ -202,7 +205,7 @@ Widget buttons(BuildContext context, String burgerImage, String burgerName,
                   context,
                   PageTransition(
                       child: OrderPage(
-                        burgerImage: burgerImage,
+                        burgerImage: burgerImageDisplay,
                         burgerName: burgerName,
                         burgerEnergy: burgerEnergy,
                         burgerMealType: burgerMealType,

@@ -1,5 +1,7 @@
 import 'package:burger_king_/core/constants/Colors.dart';
+import 'package:burger_king_/core/constants/app_controllers.dart';
 import 'package:burger_king_/core/utils/data/menu/data_deals.dart';
+import 'package:burger_king_/models/home/model_saved_king_deals.dart';
 import 'package:burger_king_/views/bottombar/bottom_bar_view.dart';
 import 'package:burger_king_/views/widgets/drawer/widget_king_deals_view.dart';
 import 'package:flutter/material.dart';
@@ -13,22 +15,39 @@ class KingDealsScreen extends StatefulWidget {
 }
 
 class _KingDealsScreenState extends State<KingDealsScreen> {
-  int index = 1;
+  int index = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-          color: lightGray,
-          child: Stack(
-            children: [
-              AppBarWidget(),
-              Container(
-                  margin: EdgeInsets.only(top: 185),
-                  padding: EdgeInsetsDirectional.symmetric(horizontal: 12),
-                  child: GridCards())
-            ],
-          )),
+      body: Stack(
+        children: [
+          FractionallySizedBox(
+              heightFactor: 0.24,
+              alignment: Alignment.topCenter,
+              child: AppBarWidget()),
+          FractionallySizedBox(
+            alignment: Alignment.topCenter,
+            heightFactor: 1,
+            child: Container(
+              margin: EdgeInsets.only(top: 175),
+              padding: EdgeInsetsDirectional.symmetric(horizontal: 12),
+              child: PageView(
+                controller: AppControllers.savedKingDealsController,
+                onPageChanged: (value) {
+                  setState(() {
+                    index = value;
+                  });
+                },
+                children: [
+                  GridCards(savedDataDineInKingDeals),
+                  GridCards(savedDataDeliveryKingDeals),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 
@@ -119,17 +138,17 @@ class _KingDealsScreenState extends State<KingDealsScreen> {
                 padding: EdgeInsets.all(3),
                 child: Row(
                   children: [
-                    appBarCard(index,1, () {
+                    appBarCard(index, 0, () {
                       setState(() {
-                        index = 1;
+                        index = 0;
                       });
                     }, "Dine-in/Takeaway", Brown, 16),
                     SizedBox(
                       width: 3,
                     ),
-                    appBarCard(index,2, () {
+                    appBarCard(index, 1, () {
                       setState(() {
-                        index = 2;
+                        index = 1;
                       });
                     }, "DELIVERY", SwitchColor, 20)
                   ],
@@ -142,32 +161,31 @@ class _KingDealsScreenState extends State<KingDealsScreen> {
     );
   }
 
-  Widget GridCards() {
+  Widget GridCards(List<dynamic> list) {
     return GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            childAspectRatio: .76,
+            childAspectRatio: .72,
             crossAxisSpacing: 15,
             mainAxisSpacing: 15),
-        itemCount: 3,
+        itemCount: list.length,
         itemBuilder: (context, index) {
           return Container(
-            height: 150,
-            width: 170,
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(10)),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(
-                  DealKingList[index].Image,
+                  list[index].imageBanner,
                 ),
                 SizedBox(
                   height: 5,
                 ),
                 Container(
-                  padding: EdgeInsets.only(right: 90),
+                  padding: EdgeInsets.only(left: 7),
                   child: Text(
-                    DealKingList[index].Name,
+                    list[index].dealName,
                     style: TextStyle(
                         color: Brown, fontFamily: "Nova", fontSize: 18),
                   ),
@@ -176,13 +194,13 @@ class _KingDealsScreenState extends State<KingDealsScreen> {
                   height: 10,
                 ),
                 Container(
-                  padding: EdgeInsets.only(right: 28, left: 10),
+                  padding: EdgeInsets.only(left: 7),
                   child: Text(
-                    DealKingList[index].Desc,
+                    "Free ${list[index].dealDescName} on Orders Above Rs.${list[index].dealPrice}",
                     style: TextStyle(
                         color: Colors.brown.shade700,
                         fontFamily: "Nova",
-                        fontSize: 13),
+                        fontSize: 15),
                   ),
                 ),
                 SizedBox(
@@ -194,13 +212,7 @@ class _KingDealsScreenState extends State<KingDealsScreen> {
                         backgroundColor: Colors.transparent,
                         context: context,
                         builder: (BuildContext context) {
-                          return Bottom(
-                              DealKingList[index].Name,
-                              DealKingList[index].CardImage,
-                              DealKingList[index].Desc,
-                              "399",
-                              DealKingList[index].Name,
-                              context);
+                          return bottomShKing(list[index], context);
                         });
                   },
                   child: Container(

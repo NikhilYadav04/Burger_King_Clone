@@ -20,4 +20,9 @@ class ProviderSellerDialog extends ChangeNotifier {
     refIndex = index;
     notifyListeners();
   }
+
+  void changeTotalPrice(num val) {
+    totalPrice = val;
+    notifyListeners();
+  }
 }

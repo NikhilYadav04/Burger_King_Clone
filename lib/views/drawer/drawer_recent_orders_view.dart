@@ -1,4 +1,5 @@
 import 'package:burger_king_/core/constants/Colors.dart';
+import 'package:burger_king_/core/constants/app_images.dart';
 import 'package:burger_king_/views/bottombar/bottom_bar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
@@ -141,7 +142,8 @@ class _RecentScreenState extends State<RecentScreen> {
           Row(
             children: [
               Image.asset(
-                "assets/Menu/Combos/green.png",
+                AppImages.combos_green,
+                // "assets/Menu/Combos/green.png",
                 height: 20,
                 width: 20,
               ),

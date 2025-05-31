@@ -28,16 +28,16 @@ class AppImages {
   static const String menu7 = "assets/menu/7.png";
   static const String menu8 = "assets/menu/8.png";
 
-  static const String menuBurger = "assets/menu/burger.png";
-  static const String menuCoins = "assets/menu/coins.png";
-  static const String menuEditt = "assets/menu/editt.png";
-  static const String menuIconB = "assets/menu/iconb.png";
-  static const String menuIconCR = "assets/menu/iconcr.png";
-  static const String menuIconH = "assets/menu/iconh.png";
-  static const String menuIconSH = "assets/menu/iconsh.png";
-  static const String menuIconNotepad = "assets/menu/notepad.png";
-  static const String menuTick = "assets/menu/tick.png";
-  static const String menuVideo = "assets/menu/video.mp4";
+  static const String menuBurger = "assets/burger.png";
+  static const String menuCoins = "assets/coins.png";
+  static const String menuEditt = "assets/editt.png";
+  static const String menuIconB = "assets/iconb.png";
+  static const String menuIconCR = "assets/iconcr.png";
+  static const String menuIconH = "assets/iconh.png";
+  static const String menuIconSH = "assets/iconsh.png";
+  static const String menuIconNotepad = "assets/notepad.png";
+  static const String menuTick = "assets/tick.png";
+  static const String menuVideo = "assets/video.mp4";
 
   static const String menu139_1 = "assets/menu/139/1.png";
   static const String menu139_2 = "assets/menu/139/2.png";

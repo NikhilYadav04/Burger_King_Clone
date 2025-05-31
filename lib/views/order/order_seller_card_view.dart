@@ -1,20 +1,16 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:burger_king_/controllers/controller_seller_dialog.dart';
-import 'package:burger_king_/core/constants/app_images.dart';
-import 'package:burger_king_/core/global/global_variables.dart';
-import 'package:burger_king_/views/widgets/home/widget_seller_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
-
-import 'package:burger_king_/core/constants/Colors.dart';
-import 'package:burger_king_/views/order/order_page_view.dart';
 import 'package:provider/provider.dart';
+
+import 'package:burger_king_/controllers/controller_seller_dialog.dart';
+import 'package:burger_king_/views/widgets/home/widget_seller_dialog.dart';
 
 // ignore: must_be_immutable
 class SellerCard extends StatefulWidget {
   String burgerName;
   String burgerImage;
+  String burgerImageDisplay;
   String burgerEnergy;
   num burgerPrice;
   num burgerMediumMealPrice;
@@ -25,6 +21,7 @@ class SellerCard extends StatefulWidget {
     Key? key,
     required this.burgerName,
     required this.burgerImage,
+    required this.burgerImageDisplay,
     required this.burgerEnergy,
     required this.burgerPrice,
     required this.burgerMediumMealPrice,
@@ -80,11 +77,12 @@ class _SellerCardState extends State<SellerCard> {
                     ),
                     buttons(
                         context,
-                        widget.burgerImage,
+                        widget.burgerImageDisplay,
                         widget.burgerName,
-                        widget.burgerImage,
+                        widget.burgerEnergy,
                         provider.mealTypeMap[provider.index]!,
-                        widget.burgerPrice),
+                        provider.totalPrice
+                        ),
                   ],
                 ),
               ),
